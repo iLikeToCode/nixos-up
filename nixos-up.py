@@ -76,6 +76,9 @@ print()
 
 def ask_username() -> str:
   sel = input("What would you like your username to be? ")
+  if sel == "root":
+    print("Username must not be the word root.")
+    return ask_username()
   if re.fullmatch(r"^[a-z_][a-z0-9_-]*[\$]?$", sel):
     return sel
   else:
